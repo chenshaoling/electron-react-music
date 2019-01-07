@@ -1,0 +1,29 @@
+{
+    "name": "electron-react-music",
+    "version": "0.1.0",
+    "main": "main.js",
+    "homepage": ".",
+    "scripts": {
+        "start": "export NODE_ENV=dev && webpack-dev-server --inline --open",
+        "build": "export NODE_ENV=prod && webpack --env=prop",
+        "electron-start": "export NODE_ENV=dev && electron .",
+        "electron-prod": "export NODE_EBV=prod && electron ."
+    },
+    "devDependencies": {
+        "awesome-typescript-loader": "^5.2.1",
+        "clean-webpack-plugin": "^1.0.0",
+        "eslint": "^5.12.0",
+        "html-webpack-plugin": "^3.2.0",
+        "react": "^16.7.0",
+        "react-dom": "^16.7.0",
+        "source-map-loader": "^0.2.4",
+        "typescript": "^3.2.2",
+        "webpack": "^4.28.3",
+        "webpack-cli": "^3.2.0"
+    },
+    "dependencies": {
+        "@types/react": "^16.7.18",
+        "@types/react-dom": "^16.0.11",
+        "webpack-dev-server": "^3.1.14"
+    }
+}
