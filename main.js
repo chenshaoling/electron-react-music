@@ -9,7 +9,11 @@ let win;
 
 function createWindow () {
   //创建浏览器窗口
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({
+    width: 800, 
+    height: 600,
+    titleBarStyle: 'hidden'
+  })
 
   // 加载应用的 index.html
   //判断是否是开发模式 
