@@ -7,12 +7,16 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 console.log(process.env['NODE_ENV']);
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].[hash].css"
+});
 
 var plugins = [
     new HtmlWebpackPlugin({
         template: './index.html'
     }),
-    
+    extractSass,
+    // new ExtractTextPlugin({filename: 'styles.css', allChunks: true}),
     new TsConfigPathsPlugin.CheckerPlugin(),
 ]
 
@@ -46,48 +50,60 @@ module.exports = {
             }]
         },{
             test: /\.css$/,
-            exclude: path.resolve(__dirname, 'dist'),
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [{
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        localIdentName: '[name]__[local]__[hash:base64:5]'
-                    }
-                },
-                'postcss-loader']
-            })
+            use: [
+                'style-loader/url',
+                { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
+                'postcss-loader'
+            ]
         },{
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
                 fallback: 'style-loader',
                 use: [{
-                    loader: 'css-loader',
-                    options: {
-                        modules: true,
-                        sourceMap: true,
-                        importLoader: 1,
-                        localIdentName: '[name]__[local]__[hash:base64:5]'
-                    }
-                },
-                'sass-loader']
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            // sourceMap: true,
+                            importLoaders: 1,
+                            localIdentName: '[name]__[local]__[hash:base64:5]'
+                        }
+                    },
+                    'sass-loader'
+                ]
             })
+                // test: /\.scss$/,
+                // use: extractSass.extract({
+                //     use: [{
+                //         loader: "style-loader"
+                //     },  {
+                //         loader: 'typings-for-css-modules-loader',
+                //         options: {
+                //             modules: true,
+                //             namedExport: true,
+                //             camelCase: true,
+                //             minimize: true,
+                //             localIdentName: "[local]_[hash:base64:5]"
+                //         }
+                //     }, {
+                //         loader: "sass-loader"
+                // }]
+            // })  
         }]
     },
     output: {
-        path: path.join(__dirname, 'dist/')
+        path: path.resolve(__dirname, 'dist/'),
+        publicPath: '/',
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.tsx', 'scss'],
+        extensions: ['.js', '.jsx', '.json', '.tsx', '.scss'],
         modules: [
-          path.join(__dirname, 'dist/'),
+          path.resolve(__dirname, 'dist/'),
           'node_modules',
         ]
     },
     devtool: 'source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.resolve(__dirname, 'dist'),
         compress: true,
         port: 9002
     },
