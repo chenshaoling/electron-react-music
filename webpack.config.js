@@ -7,21 +7,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 console.log(process.env['NODE_ENV']);
-const extractSass = new ExtractTextPlugin({
-    filename: "[name].[hash].css"
-});
+function extractSass (){
+    return new ExtractTextPlugin({
+        filename: "[name].[hash].css",
+        allChunks: true
+    });
+};
 
 var plugins = [
     new HtmlWebpackPlugin({
         template: './index.html'
     }),
-    extractSass,
+    extractSass(),
     // new ExtractTextPlugin({filename: 'styles.css', allChunks: true}),
     new TsConfigPathsPlugin.CheckerPlugin(),
 ]
 
 if(process.env['NODE_ENV'] === 'dev'){
-    plugins.push(new webpack.HotModuleReplacementPlugin())
+    // plugins.push(new webpack.HotModuleReplacementPlugin())
 }else{
     plugins.unshift(new CleanWebpackPlugin(['dist']))
 }
@@ -31,63 +34,68 @@ module.exports = {
     entry: "./src/App.tsx",
     module:{
         rules: [{
-            test: /\.tsx$/,
+        //     test: /\.tsx$/,
+        //     exclude: /node_modules/,
+        //     use: [{
+        //         loader: 'awesome-typescript-loader',
+        //         options: {
+        //             cacheDirectory:true
+        //         }
+        //     }]
+        // },{
+            test: /\.(jsx|tsx)$/,
             exclude: /node_modules/,
-            use: [{
-                loader: 'awesome-typescript-loader',
-                options: {
-                    cacheDirectory:true
-                }
-            }]
-        },{
-            test: /\.jsx$/,
-            exclude: /node_modules/,
-            use: [{
-                loader: 'babel-loader',
-                options: {
-                    cacheDirectory:true
-                }
-            }]
+            use: [
+                'react-hot-loader/webpack',
+                'babel-loader',
+                'awesome-typescript-loader'
+            ]
         },{
             test: /\.css$/,
             use: [
-                'style-loader/url',
-                { loader: 'css-loader', options: { modules: true, importLoaders: 1 } },
-                'postcss-loader'
+                'style-loader', 
+                { loader: 'css-loader', options: { modules: true, importLoaders: 1, localIdentName: '[folder]__[local]__[hash:base64:5]' } },
+                {
+                    loader: 'postcss-loader',
+                    options: { 
+                        sourceMap: true,
+                        ident: 'postcss',
+                        plugins: (loader) => [
+                            require('autoprefixer')()
+                        ]
+                     }
+                }
             ]
         },{
-            test: /\.scss$/,
+            test: /\.(scss)$/,
+            exclude: '/node_modules/',
             use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [{
-                        loader: 'css-loader',
-                        options: {
+                fallback: [{
+                    loader: 'style-loader',
+                }],
+                use: [
+                    {
+                      loader: 'css-loader',
+                      options: {
                             modules: true,
-                            // sourceMap: true,
-                            importLoaders: 1,
-                            localIdentName: '[name]__[local]__[hash:base64:5]'
-                        }
+                            sourceMap: true,
+                            importLoaders: 2,
+                            localIdentName: '[folder]__[local]__[hash:base64:5]'
+                        },
+                    },
+                    {
+                        loader: 'postcss-loader',
+                        options: { 
+                            sourceMap: true,
+                            ident: 'postcss',
+                            plugins: (loader) => [
+                                require('autoprefixer')()
+                            ]
+                         }
                     },
                     'sass-loader'
                 ]
             })
-                // test: /\.scss$/,
-                // use: extractSass.extract({
-                //     use: [{
-                //         loader: "style-loader"
-                //     },  {
-                //         loader: 'typings-for-css-modules-loader',
-                //         options: {
-                //             modules: true,
-                //             namedExport: true,
-                //             camelCase: true,
-                //             minimize: true,
-                //             localIdentName: "[local]_[hash:base64:5]"
-                //         }
-                //     }, {
-                //         loader: "sass-loader"
-                // }]
-            // })  
         }]
     },
     output: {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 // import * as Style from './index.scss';
 import * as classNames from 'classnames'
-import Styles from './index.scss';
+import Styles from './index.css';
 
 
 console.log(Styles);

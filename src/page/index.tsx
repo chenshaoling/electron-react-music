@@ -4,7 +4,7 @@ import Styles from './index.scss';
 import {Menu} from '../components/index';
 
 export interface Props {
-    className: string;
+    className?: string;
 }
 export interface State{
     
@@ -27,4 +27,4 @@ class App extends React.Component<Props, State> {
         )
     }
 }   
-export default Menu;
+export default App;
