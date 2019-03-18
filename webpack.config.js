@@ -46,9 +46,9 @@ module.exports = {
             test: /\.(jsx|tsx)$/,
             exclude: /node_modules/,
             use: [
-                'react-hot-loader/webpack',
+                // 'react-hot-loader/webpack',
                 'babel-loader',
-                'awesome-typescript-loader'
+                // 'awesome-typescript-loader'
             ]
         },{
             test: /\.css$/,
