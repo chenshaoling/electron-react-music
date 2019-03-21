@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-import {Menu} from '../components/index';
+import {MenuPanel} from '../components/index';
 
 export interface Props {
     className?: string;
@@ -21,7 +21,7 @@ class App extends React.Component<Props, State> {
         let className = classNames(this.props.className, Styles.sec);
         return (
             <div className={className}>
-                <Menu />
+                <MenuPanel />
                 113243
             </div>
         )
