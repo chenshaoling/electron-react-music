@@ -96,7 +96,18 @@ module.exports = {
                     'sass-loader'
                 ]
             })
-        }]
+        },{
+            test: /\.(png|jpg|gif)$/i,
+            use: [
+            {
+                loader: 'url-loader',
+                options: {
+                    limit: 1,
+                    name:'images/[name]-[hash:8].[ext]'
+                }
+            }
+            ]
+　　　　}]
     },
     output: {
         path: path.resolve(__dirname, 'dist/'),

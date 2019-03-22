@@ -23,7 +23,7 @@ class Menu extends React.Component<Props, State> {
         return (
             <div className={className}>
                 <div className="avator">
-                    <img src="" alt="头像"/>
+                    <img src="../images/avator.jpg" alt="头像"/>
                 </div>
                 <div>名字</div>
                 <img src="" alt="等级"/>
