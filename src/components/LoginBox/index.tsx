@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
 
+import avator from '../../images/avator.jpg';
 
 
 export interface Props {
@@ -22,8 +23,8 @@ class Menu extends React.Component<Props, State> {
         let className = classNames(this.props.className, Styles.sec);
         return (
             <div className={className}>
-                <div className="avator">
-                    <img src="../images/avator.jpg" alt="头像"/>
+                <div className={Styles.avator}>
+                    <img src={avator} alt="头像" width="100%" height="100%" />
                 </div>
                 <div>名字</div>
                 <img src="" alt="等级"/>
