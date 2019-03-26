@@ -26,8 +26,8 @@ class Menu extends React.Component<Props, State> {
                 <div className={Styles.avator}>
                     <img src={avator} alt="头像" width="100%" height="100%" />
                 </div>
-                <div>名字</div>
-                <img src="" alt="等级"/>
+                <div className={Styles.name}>名字</div>
+                <img className={Styles.medal} src="" alt="等级" width="100%" height="100%" />
             </div>
         )
     }

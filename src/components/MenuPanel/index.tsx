@@ -2,7 +2,7 @@ import * as React from 'react';
 // import * as Style from './index.scss';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-import {LoginBox} from '../index';
+import {LoginBox, Menu} from '../index';
 
 console.log(Styles);
 
@@ -25,7 +25,7 @@ class MenuPanel extends React.Component<Props, State> {
         return (
             <div className={className}>
                 <LoginBox/>
-                menu
+                <Menu/>
             </div>
         )
     }
