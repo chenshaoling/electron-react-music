@@ -32,10 +32,15 @@ class Menu extends React.Component<Props, State> {
 
                 </ul>
                 <ul>
-                    <li></li>
+                    <li className="title">我的音乐</li>
+                    <li><i className="icon"></i>我喜欢</li>
+                    <li><i className="icon"></i>本地歌曲</li>
+                    <li><i className="icon"></i>下载歌曲</li>
+                    <li><i className="icon"></i>播放历史</li>
                 </ul>
                 <ul>
-                    <li></li>
+                    <li className="title">创建的歌单</li>
+                    <li><i className="icon"></i>XXX</li>
                 </ul>
             </div>
         )
