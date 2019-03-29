@@ -2,9 +2,7 @@ import * as React from 'react';
 // import * as Style from './index.scss';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-import {LoginBox, Menu, Player} from '../index';
 
-console.log(Styles);
 
 export interface Props {
     className?: string;
@@ -12,11 +10,11 @@ export interface Props {
 export interface State{
     
 }
-class MenuPanel extends React.Component<Props, State> {
+class Player extends React.Component<Props, State> {
     constructor (props: Props) {
         super(props);
         this.state = {
-            scrollToTop: false
+            scrollToTop: false,
         };
     }
 
@@ -24,11 +22,8 @@ class MenuPanel extends React.Component<Props, State> {
         let className = classNames(this.props.className, Styles.sec);
         return (
             <div className={className}>
-                <LoginBox/>
-                <Menu/>
-                <Player/>
             </div>
         )
     }
 }   
-export default MenuPanel;
+export default Player;
