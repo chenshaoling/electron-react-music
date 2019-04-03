@@ -12,4 +12,14 @@
     .title{
         color: #ccc;
     }
+    i{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        vertical-align: middle;
+
+    }
+    .current{
+        background: #42b983;
+    }
 }

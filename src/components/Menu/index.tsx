@@ -24,8 +24,8 @@ class Menu extends React.Component<Props, State> {
         return (
             <div className={className}>
                 <ul>
-                    <li className="title">音乐馆</li>
-                    <li><i className="icon"></i>排行</li>
+                    <li className={Styles.title}>音乐馆</li>
+                    <li className={Styles.current}><i className="icon"></i>排行</li>
                     <li><i className="icon"></i>歌单</li>
                     <li><i className="icon"></i>电台</li>
                     <li><i className="icon"></i>MV</li>
