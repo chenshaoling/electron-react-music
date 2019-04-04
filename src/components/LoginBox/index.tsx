@@ -31,5 +31,6 @@ class Menu extends React.Component<Props, State> {
             </div>
         )
     }
+
 }   
 export default Menu;

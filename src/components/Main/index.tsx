@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-import {MenuPanel, Main} from '../components/index';
+import {Banner} from '../index';
 
 export interface Props {
     className?: string;
@@ -9,7 +9,7 @@ export interface Props {
 export interface State{
     
 }
-class App extends React.Component<Props, State> {
+class Main extends React.Component<Props, State> {
     constructor (props: Props) {
         super(props);
         this.state = {
@@ -21,10 +21,9 @@ class App extends React.Component<Props, State> {
         let className = classNames(this.props.className, Styles.sec);
         return (
             <div className={className}>
-                <MenuPanel />
-                <Main/>
+                <Banner/>
             </div>
         )
     }
 }   
-export default App;
+export default Main;
