@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-import Swiper from 'react-id-swiper';
+// import Swiper from 'react-id-swiper';
 
 
 export interface Props {
