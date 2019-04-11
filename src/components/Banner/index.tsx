@@ -14,19 +14,19 @@ export interface State{
     
 }
 
-// const params = {
-//     modules: [Pagination, Navigation],
-//     pagination: {
-//       el: '.swiper-pagination',
-//       type: 'bullets',
-//       clickable: true
-//     },
-//     navigation: {
-//       nextEl: '.swiper-button-next',
-//       prevEl: '.swiper-button-prev'
-//     },
-//     spaceBetween: 30
-//   }
+const params = {
+    // modules: [Pagination, Navigation],
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    },
+    spaceBetween: 30
+  }
 class Banner extends React.Component<Props, State> {
     constructor (props: Props) {
         super(props);
@@ -42,13 +42,13 @@ class Banner extends React.Component<Props, State> {
 
         return (
             <div className={className}>
-                <Swiper>
+                {/* <Swiper> */}
                     <div>Slide 1</div>
                     <div>Slide 2</div>
                     <div>Slide 3</div>
                     <div>Slide 4</div>
                     <div>Slide 5</div>
-                </Swiper>
+                {/* </Swiper> */}
                 {/* <button onClick={this.goPrev.bind(this, swiper)}>Prev</button>
                 <button onClick={this.goNext.bind(this, swiper)}>Next</button> */}
             </div>
