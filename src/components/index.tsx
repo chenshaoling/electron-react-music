@@ -5,6 +5,7 @@ import Player from './Player';
 import MusicWithPic from './MusicWithPic';
 import Banner from './Banner';
 import Main from './Main';
+import SearchBox from './SearchBox';
 
 export {
     MenuPanel,
@@ -13,5 +14,6 @@ export {
     Player,
     MusicWithPic,
     Banner,
-    Main
+    Main,
+    SearchBox
 }
