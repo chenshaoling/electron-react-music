@@ -48,7 +48,7 @@ class Banner extends React.Component<Props, State> {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev'
           },
-          spaceBetween: 30,
+          // spaceBetween: 30,
           centeredSlides: true,
           autoplay: true,
           loop : true,

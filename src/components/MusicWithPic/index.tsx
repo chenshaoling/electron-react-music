@@ -6,6 +6,7 @@ import Styles from './index.scss';
 
 export interface Props {
     className?: string;
+    musicList: []
 }
 export interface State{
     
