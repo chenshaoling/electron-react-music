@@ -43,7 +43,7 @@ module.exports = {
         //         }
         //     }]
         // },{
-            test: /\.(jsx|tsx)$/,
+            test: /\.(jsx|tsx|ts)$/,
             exclude: /node_modules/,
             use: [
                 // 'react-hot-loader/webpack',
@@ -114,7 +114,7 @@ module.exports = {
         publicPath: '/',
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.json', '.tsx', '.scss'],
+        extensions: ['.js', '.jsx', '.json', '.tsx', '.scss', '.ts'],
         modules: [
           path.resolve(__dirname, 'dist/'),
           'node_modules',

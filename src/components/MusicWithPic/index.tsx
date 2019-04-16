@@ -2,7 +2,7 @@ import * as React from 'react';
 // import * as Style from './index.scss';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-
+import {getRecommendList} from '../../service/http';
 
 export interface Props {
     className?: string;
@@ -27,6 +27,10 @@ class ListWithPic extends React.Component<Props, State> {
                 <div className={Styles.title}>歌曲</div>
             </div>
         )
+    }
+
+    componentWillMount(){
+        getRecommendList();
     }
 }   
 export default ListWithPic;
