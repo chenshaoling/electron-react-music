@@ -11,3 +11,8 @@ export let getRecommendList = (updateTime:any = null) :any => {
   }
   return axios.get(url);
 }
+
+
+export let banner = ():any => {
+  return axios.get(HOST + '/banner');
+}

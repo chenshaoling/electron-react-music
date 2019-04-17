@@ -1,20 +1,16 @@
 import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-// import Swiper from 'react-id-swiper';
-// import Swiper from 'react-id-swiper';
-// import 'react-id-swiper/src/styles/css/swiper.css';
-
-
-// import { Pagination, Navigation } from 'swiper/dist/js/swiper.esm'
 import Swiper from 'swiper';
 import 'swiper/dist/css/swiper.css';
+import {banner} from '../../service/http';
+import {IBanner} from "../IViewObject";
 
 export interface Props {
     className?: string;
 }
 export interface State{
-    
+    banners: IBanner[]
 }
 
 const params = {
@@ -34,11 +30,19 @@ class Banner extends React.Component<Props, State> {
     constructor (props: Props) {
         super(props);
         this.state = {
+          banners: []
         };
         // console.log(Swiper)
     }
-    componentDidMount(){
-        
+    componentWillMount(){
+        banner().then((res: any)=>{
+          this.setState({
+            banners: res.data.banners
+          })
+        });
+    }
+    componentDidUpdate(){
+      console.log(11)
         var swiper = new Swiper('.swiper-container', {
           pagination: {
             el:'.swiper-pagination',
@@ -66,13 +70,15 @@ class Banner extends React.Component<Props, State> {
     
     render(){
         let className = classNames(this.props.className, Styles.sec);
+        let {banners} = this.state;
+
         return (
             <div className={className}>
               <div className="swiper-container">
                 <div className="swiper-wrapper">
-                    <div className={classNames("swiper-slide", Styles.slider)}>Slide 1</div>
-                    <div className={classNames("swiper-slide", Styles.slider)}>Slide 2</div>
-                    <div className={classNames("swiper-slide", Styles.slider)}>Slide 3</div>
+                  {banners.map((item, index)=>(
+                    this.renderbanners(item, index)
+                  ))}
                 </div>
                 <div className="swiper-pagination"></div>
                 
@@ -82,5 +88,13 @@ class Banner extends React.Component<Props, State> {
           </div>
         )
     }
-}   
+    renderbanners(item: any, index: any){
+        return(
+          <div className={classNames("swiper-slide", Styles.slider)} key={index}>
+            <img src={item.imageUrl} />
+          </div>
+          )
+    }
+    
+}    
 export default Banner;
