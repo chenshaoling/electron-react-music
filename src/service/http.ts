@@ -16,3 +16,8 @@ export let getRecommendList = (updateTime:any = null) :any => {
 export let banner = ():any => {
   return axios.get(HOST + '/banner');
 }
+
+// 推荐歌单
+export let personalized = ():any => {
+  return axios.get(HOST + '/personalized');
+}

@@ -1,6 +1,16 @@
 .sec{
     width: 100%;
     min-height: 138px;
+    font-size: 0;
+    padding: 10px 10px;
+    box-sizing: border-box;
+    .item{
+        width: 138px;
+        min-height: 138px;
+        display: inline-block;
+        vertical-align: top;
+        margin: 10px 10px;
+    }
     img{
         display: block;
     }

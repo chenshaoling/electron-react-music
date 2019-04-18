@@ -2,13 +2,14 @@ import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
 import {Banner, MusicWithPic} from '../index';
+import {personalized} from '../../service/http';
+import {IPersonalized} from '../IViewObject';
 
 export interface Props {
     className?: string;
 }
 export interface State{
-
-    musicList: []
+    musicList: IPersonalized[]
 }
 class Main extends React.Component<Props, State> {
     constructor (props: Props) {
@@ -18,15 +19,35 @@ class Main extends React.Component<Props, State> {
         };
     }
 
+    componentWillMount(){
+        this.getPersonalized();
+    }
+
     render(){
         let className = classNames(this.props.className, Styles.sec);
         let { musicList } = this.state;
         return (
             <div className={className}>
                 <Banner/>
-                <MusicWithPic musicList={musicList}/>
+                <div>
+                    <p>推荐歌单</p>
+                    <MusicWithPic musicList={musicList}/>
+                </div>
             </div>
         )
+    }
+
+    getPersonalized(){
+        personalized().then((res: any)=> {
+            // if(res.code === 200){
+                let musicList = res.data.result;
+                musicList.length = 5;
+                this.setState({
+                    musicList: musicList
+                })
+                // this.forceUpdate();
+            // }
+        })
     }
 }   
 export default Main;
