@@ -21,3 +21,8 @@ export let banner = ():any => {
 export let personalized = ():any => {
   return axios.get(HOST + '/personalized');
 }
+
+// 热门歌手
+export let topArtists = ():any => {
+  return axios.get(HOST + 'top/artists');
+}
