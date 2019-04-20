@@ -26,3 +26,8 @@ export let personalized = ():any => {
 export let topArtists = ():any => {
   return axios.get(HOST + 'top/artists');
 }
+
+// 搜索
+export let search = (keywords: string):any => {
+  return axios.get(HOST + '/search?keywords=' + keywords);
+}
