@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
-import {Banner, MusicWithPic} from '../index';
+import {Banner, MusicWithPic, TopBar} from '../index';
 import {personalized} from '../../service/http';
 import {IPersonalized} from '../IViewObject';
 
@@ -28,6 +28,7 @@ class Main extends React.Component<Props, State> {
         let { musicList } = this.state;
         return (
             <div className={className}>
+                <TopBar/>
                 <Banner/>
                 <div>
                     <p>推荐歌单</p>
