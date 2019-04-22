@@ -27,7 +27,7 @@ class SearchBox extends React.Component<Props, State> {
         )
     }
 
-    private search(e: any){
+    search(e: any){
         let keywords = e.value;
         search(keywords).then((res:any) => {
             console.log(res);

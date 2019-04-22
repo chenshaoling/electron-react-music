@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
 import {search} from '../../service/http';
+import {SearchBox} from '../index';
 
 export interface Props {
     className?: string;
@@ -22,7 +23,7 @@ class TopBar extends React.Component<Props, State> {
         let className = classNames(this.props.className, Styles.sec);
         return (
             <div className={className}>
-                
+                <SearchBox/>
             </div>
         )
     }
