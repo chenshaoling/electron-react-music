@@ -1,13 +1,18 @@
 .sec{
-    width: 200px;
-    height: 40px;
+    width: 254px;
+    height: 28px;
     border-radius: 20px;
-    top: 0;
-    left: 220px;
+    background: #ccc;
+    margin-top: 6px;
     input{
-        width: 160px;
+        width: 210px;
         height: 100%;
         display: block;
         margin: 0 auto;
+        border: 0;
+        background: transparent;
+        &:focus{
+            outline: none;
+        }
     }
 }
