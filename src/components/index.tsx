@@ -7,6 +7,8 @@ import Banner from './Banner';
 import Main from './Main';
 import SearchBox from './SearchBox';
 import TopBar from './TopBar';
+import Singers from './Singers';
+
 export {
     MenuPanel,
     Menu,
@@ -16,5 +18,6 @@ export {
     Banner,
     Main,
     SearchBox,
-    TopBar
+    TopBar,
+    Singers
 }
