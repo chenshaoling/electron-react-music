@@ -2,6 +2,7 @@ import * as React from 'react';
 // import * as Style from './index.scss';
 import * as classNames from 'classnames'
 import Styles from './index.scss';
+import {topArtists} from '../../service/http';
 
 export interface Props {
     className?: string;
@@ -28,6 +29,12 @@ class Singers extends React.Component<Props, State> {
             </div>
         )
     }
-
+    topArtists(){
+        topArtists().then((res: any) => {
+            console.log(res)
+        },(res: any) => {
+            console.log(res)
+        })
+    }
 }   
 export default Singers;
