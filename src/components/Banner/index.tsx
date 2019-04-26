@@ -59,8 +59,8 @@ class Banner extends React.Component<Props, State> {
           effect : 'coverflow',
           slidesPerView: 2,
           coverflowEffect: {
-            rotate: 0,
-            stretch: 100,
+            rotate: 1,
+            stretch: 74,
             depth: 100,
             modifier: 2,
             slideShadows : true
