@@ -22,10 +22,8 @@ class Singers extends React.Component<Props, State> {
         let className = classNames(this.props.className, Styles.sec);
         return (
             <div className={className}>
-                <div className={Styles.singerPic}>
-                    <img src="" alt="" width="100%" height="100%"/>
-                </div>
-                <p className={Styles.SingerName}></p>
+
+                
             </div>
         )
     }
@@ -35,6 +33,16 @@ class Singers extends React.Component<Props, State> {
         },(res: any) => {
             console.log(res)
         })
+    }
+    renderSingers(item, index){
+        return(
+            <div>
+                <div className={Styles.singerPic}>
+                    <img src="" alt="" width="100%" height="100%"/>
+                </div>
+                <p className={Styles.SingerName}></p>
+            </div>
+        )
     }
 }   
 export default Singers;
