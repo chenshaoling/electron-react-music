@@ -24,7 +24,7 @@ export let personalized = ():any => {
 
 // 热门歌手
 export let topArtists = ():any => {
-  return axios.get(HOST + 'top/artists');
+  return axios.get(HOST + '/top/artists?offset=0&limit=5');
 }
 
 // 搜索
