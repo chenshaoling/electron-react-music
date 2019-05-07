@@ -10,8 +10,10 @@ let win;
 function createWindow () {
   //创建浏览器窗口
   win = new BrowserWindow({
-    width: 1110, 
+    width: 1010, 
     height: 694,
+    minWidth: 1010,
+    minHeight: 694,
     titleBarStyle: 'hidden',
   })
 
