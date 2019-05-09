@@ -45,7 +45,7 @@ class Singers extends React.Component<Props, State> {
         return(
             <div key={index} className={Styles.singer}>
                 <div className={Styles.singerPic}>
-                    <img src={item.picUrl} alt="" width="100%" height="100%"/>
+                    <img src={item.picUrl} alt="" width="100%" height="100%" />
                 </div>
                 <p className={Styles.SingerName}>{item.name}</p>
             </div>

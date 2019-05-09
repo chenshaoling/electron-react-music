@@ -34,7 +34,7 @@ class ListWithPic extends React.Component<Props, State> {
     renderList(item: any, index: number){
         return (
             <div key={index} className={Styles.item}>
-                <img src={item.picUrl} alt="" width="138" height="138" />
+                <img src={item.picUrl} alt="" width="100%" />
                 <div className={Styles.title}>{item.name}</div>
             </div>
         )
