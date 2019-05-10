@@ -60,7 +60,7 @@ class Banner extends React.Component<Props, State> {
           slidesPerView: 2,
           coverflowEffect: {
             rotate: 1,
-            stretch: 74,
+            stretch: 64,
             depth: 100,
             modifier: 2,
             slideShadows : true
