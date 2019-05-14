@@ -29,7 +29,7 @@ class Menu extends React.Component<Props, State> {
                 <ul>
                     <li className={Styles.title}>音乐馆</li>
                     <li className={curIndex === 0 ? Styles.current : ''} onClick={this.selectItem.bind(this,1)}>
-                        <i className="icon"></i>排行
+                        <span className="icon-icon-test2 iconfont"></span>  排行
                     </li>
                     <li className={curIndex === 1 ? Styles.current : ''}>
                         <i className="icon"></i>歌单
