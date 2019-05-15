@@ -97,7 +97,7 @@ module.exports = {
                 ]
             })
         },{
-            test: /\.(png|jpg|gif|svg)$/i,
+            test: /\.(png|jpg|gif|svg|eot|woff|ttf)$/i,
             use: [
             {
                 loader: 'url-loader',
