@@ -29,21 +29,33 @@ class Menu extends React.Component<Props, State> {
                 <ul>
                     <li className={Styles.title}>音乐馆</li>
                     <li className={curIndex === 0 ? Styles.current : ''} onClick={this.selectItem.bind(this,1)}>
-                        <span className="icon-icon-test2 iconfont"></span>  排行
+                        <span className="icon-icon-test2 iconfont"></span>排行
                     </li>
                     <li className={curIndex === 1 ? Styles.current : ''}>
-                        <i className="icon"></i>歌单
+                        <span className="icon-icon-test15 iconfont"></span>歌单
                     </li>
-                    <li><i className="icon"></i>电台</li>
-                    <li><i className="icon"></i>MV</li>
+                    <li>
+                        <span className="icon-icon-test13 iconfont"></span>电台
+                    </li>
+                    <li>
+                        <span className="icon-icon-test9 iconfont"></span>MV
+                    </li>
 
                 </ul>
                 <ul>
                     <li className={Styles.title}>我的音乐</li>
-                    <li><i className="icon"></i>我喜欢</li>
-                    <li><i className="icon"></i>本地歌曲</li>
-                    <li><i className="icon"></i>下载歌曲</li>
-                    <li><i className="icon"></i>播放历史</li>
+                    <li>
+                        <span className="icon-icon-test21 iconfont"></span>我喜欢
+                    </li>
+                    <li>
+                        <span className="icon-icon-test11 iconfont"></span>本地歌曲
+                    </li>
+                    <li>
+                        <span className="icon-icon-test8 iconfont"></span>下载歌曲
+                    </li>
+                    <li>
+                        <span className="icon-icon-test iconfont"></span>播放历史
+                    </li>
                 </ul>
                 <ul>
                     <li className={Styles.title}>创建的歌单</li>
