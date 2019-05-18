@@ -12,6 +12,37 @@ export interface State{
     scrollToTop: Boolean,
     curIndex: Number
 }
+const MENU_LIST = [{
+    title: '音乐馆',
+    menus: [{
+        icon: 'icon-icon-test2',
+        name: '排行'
+    },{
+        icon: 'icon-icon-test15',
+        name: '歌单'
+    },{
+        icon: 'icon-icon-test13',
+        name: '电台'
+    },{
+        icon: 'icon-icon-test9',
+        name: 'MV'
+    }]
+},{
+    title: '我的音乐',
+    menus: [{
+        icon: 'icon-icon-test21',
+        name: '我喜欢'
+    },{
+        icon: 'icon-icon-test11',
+        name: '本地歌曲'
+    },{
+        icon: 'icon-icon-test8',
+        name: '下载歌曲'
+    },{
+        icon: 'icon-icon-test',
+        name: '播放历史'
+    }]
+}]
 class Menu extends React.Component<Props, State> {
     constructor (props: Props) {
         super(props);
