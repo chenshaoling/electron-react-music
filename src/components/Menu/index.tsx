@@ -16,30 +16,38 @@ const MENU_LIST = [{
     title: '音乐馆',
     menus: [{
         icon: 'icon-icon-test2',
+        id: 0,
         name: '排行'
     },{
         icon: 'icon-icon-test15',
+        id: 1,
         name: '歌单'
     },{
         icon: 'icon-icon-test13',
+        id: 2,
         name: '电台'
     },{
         icon: 'icon-icon-test9',
+        id: 3,
         name: 'MV'
     }]
 },{
     title: '我的音乐',
     menus: [{
         icon: 'icon-icon-test21',
+        id: 4,
         name: '我喜欢'
     },{
         icon: 'icon-icon-test11',
+        id: 5,
         name: '本地歌曲'
     },{
         icon: 'icon-icon-test8',
+        id: 6,
         name: '下载歌曲'
     },{
         icon: 'icon-icon-test',
+        id: 7,
         name: '播放历史'
     }]
 }]
