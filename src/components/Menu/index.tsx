@@ -109,5 +109,22 @@ class Menu extends React.Component<Props, State> {
             curIndex: index
         })
     }
+
+    renderTypes(type: any, index: any){
+        return(
+            <li>
+                <ul>
+                    <li className={Styles.title}>{type.title}</li>
+                    {type.menus.map((item: any, index: any)=>(this.renderList(item, index)))}
+                </ul>
+            </li>
+            
+        )
+    }
+    renderList(item: any, index: any){
+        return(
+            <li><i className={item.icon}></i>{item.name}</li>
+        )
+    }
 }   
 export default Menu;
