@@ -10,7 +10,7 @@ export interface Props {
 }
 export interface State{
     scrollToTop: Boolean,
-    curIndex: Number
+    curId: Number
 }
 const MENU_LIST = [{
     title: '音乐馆',
@@ -56,74 +56,40 @@ class Menu extends React.Component<Props, State> {
         super(props);
         this.state = {
             scrollToTop: false,
-            curIndex: 0
+            curId: 0
         };
     }
 
     render(){
         let className = classNames(this.props.className, Styles.sec);
-        let {curIndex} = this.state;
+        let {curId} = this.state;
         return (
             <div className={className}>
-                <ul>
-                    <li className={Styles.title}>音乐馆</li>
-                    <li className={curIndex === 0 ? Styles.current : ''} onClick={this.selectItem.bind(this,1)}>
-                        <span className="icon-icon-test2 iconfont"></span>排行
-                    </li>
-                    <li className={curIndex === 1 ? Styles.current : ''}>
-                        <span className="icon-icon-test15 iconfont"></span>歌单
-                    </li>
-                    <li>
-                        <span className="icon-icon-test13 iconfont"></span>电台
-                    </li>
-                    <li>
-                        <span className="icon-icon-test9 iconfont"></span>MV
-                    </li>
-
-                </ul>
-                <ul>
-                    <li className={Styles.title}>我的音乐</li>
-                    <li>
-                        <span className="icon-icon-test21 iconfont"></span>我喜欢
-                    </li>
-                    <li>
-                        <span className="icon-icon-test11 iconfont"></span>本地歌曲
-                    </li>
-                    <li>
-                        <span className="icon-icon-test8 iconfont"></span>下载歌曲
-                    </li>
-                    <li>
-                        <span className="icon-icon-test iconfont"></span>播放历史
-                    </li>
-                </ul>
-                <ul>
-                    <li className={Styles.title}>创建的歌单</li>
-                    <li><i className="icon"></i>XXX</li>
-                </ul>
+                {MENU_LIST.map((type: any, index: any)=>(this.renderTypes(type, index)))}
             </div>
         )
     }
 
-    selectItem(index: any){
+    selectItem(id: any){
         this.setState({
-            curIndex: index
+            curId: id
         })
     }
 
     renderTypes(type: any, index: any){
         return(
-            <li>
-                <ul>
-                    <li className={Styles.title}>{type.title}</li>
-                    {type.menus.map((item: any, index: any)=>(this.renderList(item, index)))}
-                </ul>
-            </li>
+            <ul key={index} >
+                <li className={Styles.title}>{type.title}</li>
+                {type.menus.map((item: any, index: any)=>(this.renderList(item, index)))}
+            </ul>
             
         )
     }
     renderList(item: any, index: any){
+        let {curId} = this.state;
+
         return(
-            <li><i className={item.icon}></i>{item.name}</li>
+            <li key={index} onClick={()=>(this.selectItem(item.id))} className={curId === item.id ? Styles.current : ''} ><span className={classNames(item.icon, 'iconfont')}></span>{item.name}</li>
         )
     }
 }   
