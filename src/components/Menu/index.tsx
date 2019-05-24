@@ -17,38 +17,46 @@ const MENU_LIST = [{
     menus: [{
         icon: 'icon-icon-test2',
         id: 0,
-        name: '排行'
+        name: '排行',
+        type: 'top' //TODO: 路由
     },{
         icon: 'icon-icon-test15',
         id: 1,
-        name: '歌单'
+        name: '歌单',
+        type: ''
     },{
         icon: 'icon-icon-test13',
         id: 2,
-        name: '电台'
+        name: '电台',
+        type: ''
     },{
         icon: 'icon-icon-test9',
         id: 3,
-        name: 'MV'
+        name: 'MV',
+        type: ''
     }]
 },{
     title: '我的音乐',
     menus: [{
         icon: 'icon-icon-test21',
         id: 4,
-        name: '我喜欢'
+        name: '我喜欢',
+        type: '',
     },{
         icon: 'icon-icon-test11',
         id: 5,
-        name: '本地歌曲'
+        name: '本地歌曲',
+        type: ''
     },{
         icon: 'icon-icon-test8',
         id: 6,
-        name: '下载歌曲'
+        name: '下载歌曲',
+        type: ''
     },{
         icon: 'icon-icon-test',
         id: 7,
-        name: '播放历史'
+        name: '播放历史',
+        type: ''
     }]
 }]
 class Menu extends React.Component<Props, State> {
@@ -92,5 +100,7 @@ class Menu extends React.Component<Props, State> {
             <li key={index} onClick={()=>(this.selectItem(item.id))} className={curId === item.id ? Styles.current : ''} ><span className={classNames(item.icon, 'iconfont')}></span>{item.name}</li>
         )
     }
+
+    
 }   
 export default Menu;
